@@ -18,7 +18,7 @@ function scrollHeaderFunction() {
     const mobileMenuRef = document.querySelector('[data-menu]');
     const headerWraperRef = document.querySelector('[data-header]');
 
-    
+
     menuBtnRef.addEventListener('click', () => {
         const expanded =
             menuBtnRef.getAttribute('aria-expanded') === 'true' || false;
@@ -33,7 +33,7 @@ function scrollHeaderFunction() {
 $('.gamburger').click(function () {
     $('.gamburger span:nth-child(1)').toggleClass('first');
     $('.gamburger span:nth-child(2)').toggleClass('last');
-    
+
 });
 
 
@@ -62,43 +62,10 @@ function reveal() {
     }
 };
 
-function activeScroll() {
-    let lastId;
-    var sql = window.matchMedia("(min-width: 1000px)")
-    fromTop = $(this).scrollTop() + 150;
-    menuItems = $(".indicator__item", ".indicator");
-    scrollItems = menuItems.map(function () {
-        var item = $($(this).attr("data-href"));
-        if (item.length) {
-            return item;
-        }
-    });
-    cur = scrollItems.map(function () {
-        if ($(this).offset().top < fromTop) {
-            return this;
-        }
-    });
-    cur = cur[cur.length - 1];
-    id = cur && cur.length ? cur[0].id : "";
-    if (lastId !== id) {
-        lastId = id;
-        if (!(id === "lastSection")&&sql.matches) {
-            $("#indicator").show();
-
-            menuItems
-                .removeClass("active")
-                .filter("[data-href='#" + id + "']")
-                .addClass("active");
-        } else if (id === "lastSection"&&sql.matches){
-            $("#indicator").hide();
-        }
-    }
-};
 
 window.addEventListener("scroll", () => {
     scrollHeaderFunction();
     reveal();
-    activeScroll();
 });
 
 document.getElementById("title1").animate(
@@ -129,7 +96,7 @@ document.getElementById("title2").animate(
         {
             transform: "translateY(0)",
             opacity: 1
-},
+        },
     ],
     {
         // timing options
@@ -137,59 +104,13 @@ document.getElementById("title2").animate(
         iterations: 1,
     },
 );
-function initSlider() {
-    var slickElement = $('.sliderInit', '.section10'),
-        sliderCount = $('.sliderQty', '.section10');
-
-    $(slickElement).slick({
-        speed: 300,
-        infinite: true,
-        arrows: false,
-        autoplay: true,
-        autoplaySpeed: 1500,
-        slidesToShow: 3,
-        adaptiveHeight: true,
-        responsive: [
-            {
-                breakpoint: 1920,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3,
-                   
-                }
-            },
-            {
-                breakpoint: 1440,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2
-                }
-            },
-            {
-                breakpoint: 1000,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-            }
-        ]
-    });
-
-    $(slickElement).on('init, reinit, afterChange', function (event, slick, currentSlide, nextSlide) {
-        var i = (currentSlide ? currentSlide : 0) + 1;
-        $(sliderCount).html('<span>' + i + '</span> - ' + slick.slideCount);
-    });
-}
-$(document).ready(function () {
-    initSlider();
-});
 
 window.addEventListener('DOMContentLoaded', function () {
     var inputs = document.querySelectorAll('input[type="tel"]');
 
     Array.prototype.forEach.call(inputs, function (input) {
         new InputMask({
-            selector: input, // в качестве селектора может быть элемент, или, собственно css селектор('#input', '.input', 'input'). Если селектор - тег или класс - будет получен только первый элемент
+            selector: input, 
             layout: input.dataset.mask
         })
     })
@@ -197,7 +118,7 @@ window.addEventListener('DOMContentLoaded', function () {
 });
 function InputMask(options) {
     this.el = this.getElement(options.selector);
-    if (!this.el) return console.log('Что-то не так с селектором');
+    if (!this.el) return console.log('Щось не так з селектором');
     this.layout = options.layout || '+_ (___) ___-__-__';
     this.maskreg = this.getRegexp();
 

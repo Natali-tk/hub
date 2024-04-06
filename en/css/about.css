@@ -16,6 +16,9 @@ body::before,
 .section2::after {
   display: none;
 }
+.section11 {
+  width: 100%;
+}
 span.orange {
   color: #ff4200;
 }

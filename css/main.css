@@ -127,7 +127,7 @@ p {
   line-height: 120%;
 }
 section {
-  width: 100vw;
+  width: 100%;
 }
 .reveal {
   position: relative;

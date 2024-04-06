@@ -16,9 +16,7 @@ body::before,
 .section2::after {
   display: none;
 }
-.section11 {
-  width: 100%;
-}
+
 span.orange {
   color: #ff4200;
 }
@@ -367,4 +365,8 @@ background-image: none;
   .section4 .container .btn {
     margin-left: 212px;
   }
+}
+section.clients,
+.section11 {
+  width: 100%;
 }

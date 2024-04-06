@@ -8,6 +8,9 @@ footer {
   background-color: #111;
   background-image: none;
 }
+.section11{
+  width: 100%;
+}
 .section2::before,
 .footer__wrapper-logo.dark {
   background-image: none;
